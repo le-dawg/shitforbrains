@@ -1,0 +1,45 @@
+<?php
+   if(isset($_POST['ans_hent'])) {
+   $rapport = $_POST['id'];
+     $test = 0;
+   }  
+   if(isset($_POST['giv_ans_paa'])){
+   $rapport = $_POST['id'];
+   $ans = $_POST['ans'];
+   $id = $_POST['id'];
+   $up_data_date = date('j-m-Y');
+   $up_data_date2 = date('Y-m-d', strtotime("$up_data_date"));
+     $result = mysql_query("SELECT * FROM proservice WHERE id='$id'");
+     while($row = mysql_fetch_assoc($result)) {
+     $ans2 = $row['ans'];
+         mysql_query("UPDATE `proservice` SET `ans`='$ans' WHERE id='$id'"); 
+         mysql_query("INSERT INTO `proservice_rapport` (`service_raport`, `timer`, `dato`, `dato2`, `beskivsle`, `ans`) VALUES ('$id','-','$up_data_date','$up_data_date2','$ans2 Har givet ansvaret for opgaven til $ans','$ans2')");
+         $result = mysql_query("SELECT * FROM proservice_rapport ORDER BY id DESC LIMIT 1");
+         while($row = mysql_fetch_assoc($result)) {     
+?>
+<div class="top2">Du har vider givet ansvaret for rapport: <?php echo ''.$row['service_raport'].''; ?></div>
+<?php } } } ?>
+<?php if(isset($_POST['tag_ans'])) {
+   $rapport = $_POST['id'];
+   $id = $_POST['id'];
+   $ans = $_SESSION['uid']; 
+   $up_data_date = date('j-m-Y');
+   $up_data_date2 = date('Y-m-d', strtotime("$up_data_date"));
+     $result = mysql_query("SELECT * FROM proservice WHERE id='$id'");
+     while($row = mysql_fetch_assoc($result)) {
+   $ans2 = $row['ans'];
+         mysql_query("UPDATE `proservice` SET `ans`='$ans' WHERE id='$id'"); 
+         mysql_query("INSERT INTO `proservice_rapport` (`service_raport`, `timer`, `dato`, `dato2`, `beskivsle`, `ans`) VALUES ('$id','-','$up_data_date','$up_data_date2','$ans Har taget ansvare for opgaven fra $ans2','$ans')");
+         $result = mysql_query("SELECT * FROM proservice_rapport ORDER BY id DESC LIMIT 1");
+         while($row = mysql_fetch_assoc($result)) { 
+?>
+<div class="top2">Du har nu ansvaret for rapport: <?php echo ''.$row['service_raport'].''; ?></div>
+<?php } } } ?>
+<?php $min = '99999';
+   $max = '126306';
+   $min2 = '9999';
+   $max2 = '70000';
+   if (isset($test)) { 
+   if ($rapport > $min2 && $max2 > $rapport) { ?>
+   <div class="top2" style="background-color:red; color:#ffffff;">Denne sag er en rød rapport.</div>
+   <?php } ?>

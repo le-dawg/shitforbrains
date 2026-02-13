@@ -1,0 +1,32 @@
+<?php
+     $errormsg = "";
+     $firma_navn = $_SESSION['soge_firma'];
+     $v_ref = $_SESSION['soge_v_ref']; 
+     $d_ref = $_SESSION['soge_d_ref'];
+     $ans =$_SESSION['soge_ans']; 
+     $rapport = $_SESSION['soge_rapport']; 
+     $status = $_SESSION['soge_status']; 
+     $ind = $_SESSION['soge_ind']; 
+     $revk = $_SESSION['soge_revk'];  
+     $navn = $_SESSION['soge_navn']; 
+     $adresse = $_SESSION['soge_adresse']; 
+     $post = $_SESSION['soge_post']; 
+     $land = $_SESSION['soge_land']; 
+     $navn_lev = $_SESSION['soge_navn_lev']; 
+     $adresse_lev = $_SESSION['soge_adresse_lev']; 
+     $post_lev = $_SESSION['soge_post_lev']; 
+     $land_lev = $_SESSION['soge_land_lev']; 
+     $telefon = $_SESSION['soge_telefon']; 
+     $mobil = $_SESSION['soge_mobil']; 
+     $fabrikat = $_SESSION['soge_fab'];
+     $type = $_SESSION['soge_type'];
+     $maskine = $_SESSION['soge_maskine'];
+     $sn_nr = $_SESSION['soge_snnr'];  
+     $dato = $_SESSION['soge_dato'];  
+     $filter1 = $_SESSION['filter1'];  
+     $filter2 = $_SESSION['filter2'];  
+     $filter3 = $_SESSION['filter3'];  
+     $filter4 = $_SESSION['filter4'];  
+     $filter5 = $_SESSION['filter5']; 
+     $filter6 = $_SESSION['filter6'];   
+?>
