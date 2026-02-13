@@ -81,7 +81,7 @@ class TimeSeriesStat:
             self.timestamps = []
 
     def record(self, ts: Optional[float]) -> None:
-        if ts:
+        if ts not in (None, 0):
             self.timestamps.append(ts)
         self.count += 1
 
